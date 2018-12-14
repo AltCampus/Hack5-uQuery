@@ -105,7 +105,7 @@ class Wrap {
       });
       return this;
     }
-
+        
   // Load data from the server
     async load(url) {
       let fetchData = await fetch(url).then(d => d.json()).then(v => this.store = v);
@@ -158,6 +158,14 @@ class Wrap {
         className = el
         console.log(el) 
       })
+      return this;
+    }
+
+    contents(){
+      this.els.forEach(el => {
+        console.log(el) 
+      })
+      return this;
     }
 
   // after() method inserts a node after the reference node as a child of a specified parent node.
@@ -171,9 +179,9 @@ class Wrap {
 
   // Get the current value of the first element in the set of matched elements.
     val(newVal){
-      this.els.forEach(v => {
-        v.value = newVal
-      })
+      this.els.forEach(el => {
+        el.value = newVal;
+      });
       return this;
     }
 
@@ -256,6 +264,7 @@ class Wrap {
       this.els.forEach(el => {
         el.addEventListener('dblclick',callback);
       });
+      return this;
     }
 
   // Bind an event handler to the "mouseover" JavaScript event, or trigger that event on an element.
